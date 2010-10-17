@@ -24,6 +24,7 @@ package
 		override public function update():void 
 		{
 			move();
+			constrain();
 		}
 		
 		private function move():void
@@ -44,6 +45,27 @@ package
 			else if (Input.check(Key.DOWN))
 			{
 				y += speed * FP.elapsed;
+			}
+		}
+		
+		private function constrain():void
+		{
+			// keep player from moving offscreen
+			if (x < 16)
+			{
+				x = 16;
+			}
+			else if (x > FP.screen.width-width - 16)
+			{
+				x = FP.screen.width-width - 16;
+			}
+			else if (y < 0)
+			{
+				y = 0;
+			}
+			else if (y > FP.screen.height - height - 16)
+			{
+				y = FP.screen.height - height - 16;
 			}
 		}
 		

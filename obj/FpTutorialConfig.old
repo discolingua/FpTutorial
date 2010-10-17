@@ -18,7 +18,7 @@
     </define>
     <source-path append="true">
       <path-element>C:\Documents and Settings\sharvey\My Documents\Flash\FpTutorial\src</path-element>
-      <path-element>C:\Documents and Settings\sharvey\My Documents\Flash\FpTutorial\net</path-element>
+      <path-element>C:\Documents and Settings\sharvey\My Documents\Flash\FlashPunk</path-element>
       <path-element>C:\Program Files\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
   </compiler>
