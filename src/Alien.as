@@ -22,6 +22,28 @@ package
 			type = "alien";
 		}
 		
+		override public function update():void
+		{
+			x -= speed * FP.elapsed;
+			y += (Math.cos(x / 50) * 50) * FP.elapsed;
+			if (x < -40)
+			{
+				destroy();
+			}
+			
+			// collision detection between bullet and alien
+			
+			var bullet:Bullet = collide("bullet", x, y) as Bullet;
+			if (bullet)
+			{
+				bullet.destroy();
+				destroy();
+			}
+		}
+		
+		public function destroy():void
+		{
+			FP.world.remove(this);
+		}
 	}
-
 }

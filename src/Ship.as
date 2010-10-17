@@ -25,6 +25,8 @@ package
 		{
 			move();
 			constrain();
+			shoot();
+			collision();
 		}
 		
 		private function move():void
@@ -69,11 +71,28 @@ package
 			}
 		}
 		
+		private function shoot():void
+		{
+			if (Input.pressed(Key.Z))
+			{
+				world.add(new Bullet(x+36,y+12));
+			}
+		}
+		
+		private function collision():void
+		{
+			var alien:Alien = collide("alien", x, y) as Alien;
+			if (alien)
+			{
+				alien.destroy();
+				destroy();
+			}
+		}
+		
 		public function destroy():void 
 		{
 			// delete the player
 			FP.world.remove(this);
 		}
-	}
-
+	}	
 }
