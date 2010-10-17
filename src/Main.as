@@ -1,7 +1,6 @@
 ﻿package 
 {
-	import flashpunk.*;
-	import net.flashpunk.Engine;
+	import net.flashpunk.*;
 	[SWF(width = "640", height = "480")]
 	
 	public class Main extends Engine 
@@ -12,5 +11,4 @@
 				FP.world = new GameRoom;    // load the game
 			}
 	}
-	
 }
