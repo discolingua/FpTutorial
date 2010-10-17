@@ -86,6 +86,9 @@ package
 			{
 				alien.destroy();
 				destroy();
+				HUD.gameOverText1.text = "GAME OVER";
+				HUD.gameOverText2.text = "PRESS ENTER TO PLAY AGAIN";
+				HUD.gameOver = true;
 			}
 		}
 		

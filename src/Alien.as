@@ -38,6 +38,7 @@ package
 			{
 				bullet.destroy();
 				destroy();
+				HUD.score++;
 			}
 		}
 		
