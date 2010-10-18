@@ -7,6 +7,11 @@ package
 	public class Ship extends Entity
 	{
 		[Embed(source = "assets/ship.png")] private var spr_ship:Class;
+		[Embed(source = "assets/explosionShip.mp3")] private var snd_shipDie:Class;
+		[Embed(source = "assets/Bullet.mp3")] private var snd_bulletShoot:Class;
+		
+		private var shipDie:Sfx;
+		private var bulletShoot:Sfx;
 		
 		private var speed:Number = 250;
 		
@@ -19,6 +24,9 @@ package
 			width = 40;
 			height = 16;
 			type = "ship";
+			
+			shipDie = new Sfx(snd_shipDie);
+			bulletShoot = new Sfx(snd_bulletShoot);
 		}
 
 		override public function update():void 
@@ -75,7 +83,8 @@ package
 		{
 			if (Input.pressed(Key.Z))
 			{
-				world.add(new Bullet(x+36,y+12));
+				world.add(new Bullet(x + 36, y + 12));
+				bulletShoot.play();
 			}
 		}
 		
@@ -84,6 +93,7 @@ package
 			var alien:Alien = collide("alien", x, y) as Alien;
 			if (alien)
 			{
+				shipDie.play();
 				alien.destroy();
 				destroy();
 				HUD.gameOverText1.text = "GAME OVER";

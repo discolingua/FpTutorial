@@ -5,9 +5,11 @@ package
 		
 	public class Alien extends Entity
 	{
-		[Embed(source="assets/alien.png")] private var spr_alien:Class
+		[Embed(source = "assets/alien.png")] private var spr_alien:Class;
+		[Embed(source = "assets/explosionalien.mp3")] private var snd_alienDie:Class;
 		
 		private var speed:Number = 200;
+		private var alienDie:Sfx;
 		
 		// _x and _y are sent by the calling function
 		
@@ -20,6 +22,8 @@ package
 			height = 32;
 			graphic = new Image(spr_alien);
 			type = "alien";
+			alienDie = new Sfx(snd_alienDie);
+
 		}
 		
 		override public function update():void
@@ -37,6 +41,7 @@ package
 			if (bullet)
 			{
 				bullet.destroy();
+				alienDie.play();
 				destroy();
 				HUD.score++;
 			}
