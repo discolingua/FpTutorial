@@ -94,6 +94,7 @@ package
 			if (alien)
 			{
 				shipDie.play();
+				GameRoom.particleExplosion(x, y);
 				alien.destroy();
 				destroy();
 				HUD.gameOverText1.text = "GAME OVER";

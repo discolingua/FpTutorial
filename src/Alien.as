@@ -42,6 +42,7 @@ package
 			{
 				bullet.destroy();
 				alienDie.play();
+				GameRoom.particleExplosion(x, y);
 				destroy();
 				HUD.score++;
 			}
