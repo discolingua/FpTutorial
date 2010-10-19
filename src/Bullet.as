@@ -19,8 +19,8 @@ package
 		
 		override public function update():void
 		{
-			x += speed * FP.elapsed;
-			if (x > FP.screen.width)
+			x += speed * FP.elapsed + 2;   // +2 to track w/camera movement
+			if (x > FP.screen.width + FP.camera.length)
 			{
 				destroy();
 			}

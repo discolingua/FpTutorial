@@ -40,6 +40,9 @@ package
 		private function move():void
 		{
 			// move the player
+			
+			x += 2; // track with camera
+			
 			if (Input.check(Key.RIGHT))
 			{
 				x += speed * FP.elapsed;
@@ -61,13 +64,13 @@ package
 		private function constrain():void
 		{
 			// keep player from moving offscreen
-			if (x < 16)
+			if (x < 16 + FP.camera.length)
 			{
-				x = 16;
+				x = 16 + FP.camera.length;
 			}
-			else if (x > FP.screen.width-width - 16)
+			else if (x > FP.screen.width- width - 16 + FP.camera.length)
 			{
-				x = FP.screen.width-width - 16;
+				x = FP.screen.width-width - 16 + FP.camera.length;
 			}
 			else if (y < 0)
 			{
