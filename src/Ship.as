@@ -9,9 +9,11 @@ package
 		[Embed(source = "assets/ship.png")] private var spr_ship:Class;
 		[Embed(source = "assets/explosionShip.mp3")] private var snd_shipDie:Class;
 		[Embed(source = "assets/Bullet.mp3")] private var snd_bulletShoot:Class;
+		[Embed(source = "assets/fpt_loop.mp3")] private var snd_musicLoop:Class;
 		
 		private var shipDie:Sfx;
 		private var bulletShoot:Sfx;
+		private var musicLoop:Sfx;
 		
 		private var speed:Number = 250;
 		
@@ -27,6 +29,9 @@ package
 			
 			shipDie = new Sfx(snd_shipDie);
 			bulletShoot = new Sfx(snd_bulletShoot);
+			musicLoop = new Sfx(snd_musicLoop);
+			
+			musicLoop.loop(1, 0);
 		}
 
 		override public function update():void 
@@ -96,6 +101,7 @@ package
 			var alien:Alien = collide("alien", x, y) as Alien;
 			if (alien)
 			{
+				musicLoop.stop();
 				shipDie.play();
 				GameRoom.particleExplosion(x, y);
 				alien.destroy();
