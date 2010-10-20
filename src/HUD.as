@@ -52,6 +52,10 @@ package
 		
 		override public function update():void 
 		{
+			gameOverText1.x = 265 + FP.camera.length;
+			gameOverText2.x = 182 + FP.camera.length;
+			scoreText.x = 10 + FP.camera.length;
+			
 			//update score
 			scoreText.text = String(score);
 			

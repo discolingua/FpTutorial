@@ -16,7 +16,7 @@ package
 		public function Alien(_x:Number, _y:Number ):void 
 		{
 			// initialize alien properties
-			x = _x;
+			x = _x + FP.camera.length;
 			y = _y;
 			width = 36;
 			height = 32;
@@ -28,9 +28,9 @@ package
 		
 		override public function update():void
 		{
-			x -= speed * FP.elapsed;
+			x -= speed * FP.elapsed + 2;   // +2 to compensate for camera movement
 			y += (Math.cos(x / 50) * 50) * FP.elapsed;
-			if (x < -40)
+			if (x < -40 + FP.camera.length)
 			{
 				destroy();
 			}
