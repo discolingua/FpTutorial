@@ -6,7 +6,7 @@ package
 	
 	public class Ship extends Entity
 	{
-		[Embed(source = "assets/ship.png")] private var spr_ship:Class;
+		[Embed(source = "assets/rship1.png")] private var spr_ship:Class;
 		[Embed(source = "assets/explosionShip.mp3")] private var snd_shipDie:Class;
 		[Embed(source = "assets/Bullet.mp3")] private var snd_bulletShoot:Class;
 		[Embed(source = "assets/fpt_loop.mp3")] private var snd_musicLoop:Class;

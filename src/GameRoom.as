@@ -10,7 +10,7 @@ package
 		[Embed(source = "assets/backdrop.png")] private var spr_backdrop:Class;
 		
 		private var spawnTimer:Number;
-		private var spawnInterval:Number = 2.5;
+		private var spawnInterval:Number = 1.5;
 		private static var explode:Emitter;
 		private var backdrop1:Backdrop;
 		private var backdrop2:Backdrop;
