@@ -13,7 +13,7 @@ package
 		{
 			x = _x;
 			y = _y;
-			graphic = Image.createRect(16, 16, 0x6B6B6B);  // rectangle for bullet
+			graphic = Image.createRect(16, 8, 0x5FA92A);  // rectangle for bullet
 			type = "bullet";
 		}
 		

@@ -27,17 +27,17 @@ package
 			// set up textfields
 			scoreText = new Text(String(score), 10, 8, 200, 50);
 			scoreText.font = "nokiafc22";
-			scoreText.color = 0x6B6B6B;
+			scoreText.color = 0x960028;
 			scoreText.size = 32;
 			
 			gameOverText1 = new Text("", FP.screen.width / 2 - 55, FP.screen.height / 2 - 8, 110, 18);
 			gameOverText1.font = "nokiafc22";
-			gameOverText1.color = 0x6B6B6B;
+			gameOverText1.color = 0x960028;
 			gameOverText1.size = 16;
 			
 			gameOverText2 = new Text("", FP.screen.width / 2 - 138, FP.screen.height / 2 + 8, 276, 18);
 			gameOverText2.font = "nokiafc22";
-			gameOverText2.color = 0x6B6B6B;
+			gameOverText2.color = 0x960028;
 			gameOverText2.size = 16;
 			
 			// to display multiple graphics (e.g. text), use a GraphicList

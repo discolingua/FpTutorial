@@ -5,7 +5,7 @@ package
 		
 	public class Alien extends Entity
 	{
-		[Embed(source = "assets/dice1.png")] private var spr_alien:Class;
+		[Embed(source = "assets/ralien1.png")] private var spr_alien:Class;
 		[Embed(source = "assets/explosionalien.mp3")] private var snd_alienDie:Class;
 		
 		private var speed:Number = 200;
