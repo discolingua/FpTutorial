@@ -1,0 +1,15 @@
+<project>
+	<name>project disco</name>
+	<settings>
+		<defaultWidth>3200</defaultWidth>
+		<defaultHeight>720</defaultHeight>
+	</settings>
+	<tilesets>
+		<tileset name="grass" image="grass_r.png" tileWidth="16" tileHeight="16"/>
+		<tileset name="brick" image="brick_r.png" tileWidth="16" tileHeight="16"/>
+	</tilesets>
+	<layers>
+		<grid name="floors" gridSize="16" exportAsObjects="true"/>
+		<tiles name="tilesAbove" gridSize="16"/>
+	</layers>
+</project>

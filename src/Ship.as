@@ -9,11 +9,13 @@ package
 		[Embed(source = "assets/rship1.png")] private var spr_ship:Class;
 		[Embed(source = "assets/explosionShip.mp3")] private var snd_shipDie:Class;
 		[Embed(source = "assets/Bullet.mp3")] private var snd_bulletShoot:Class;
-		[Embed(source = "assets/fpt_loop.mp3")] private var snd_musicLoop:Class;
+		[Embed(source = "assets/drumtest.mp3")] private var snd_drumLoop:Class;
+		[Embed(source = "assets/keystest.mp3")] private var snd_keysLoop:Class;
 		
 		private var shipDie:Sfx;
 		private var bulletShoot:Sfx;
-		private var musicLoop:Sfx;
+		private var drumLoop:Sfx;
+		private var keysLoop:Sfx;
 		
 		private var speed:Number = 250;
 		
@@ -29,13 +31,27 @@ package
 			
 			shipDie = new Sfx(snd_shipDie);
 			bulletShoot = new Sfx(snd_bulletShoot);
-			musicLoop = new Sfx(snd_musicLoop);
+			drumLoop = new Sfx(snd_drumLoop);
+			keysLoop = new Sfx(snd_keysLoop);
 			
-			musicLoop.loop(1, 0);
+			
+			drumLoop.loop();
+			drumLoop.volume = 0;
+			keysLoop.loop();
 		}
 
 		override public function update():void 
 		{
+			
+			//fade shot musicloop
+			
+			if (drumLoop.volume > 0) 
+			{
+				drumLoop.volume -= .01;
+			}
+			
+			// main update cycle
+			
 			move();
 			constrain();
 			shoot();
@@ -91,8 +107,9 @@ package
 		{
 			if (Input.pressed(Key.Z))
 			{
+				drumLoop.volume = .9;
 				world.add(new Bullet(x + 36, y + 12));
-				bulletShoot.play();
+				// bulletShoot.play(.6);
 			}
 		}
 		
@@ -101,7 +118,8 @@ package
 			var alien:Alien = collide("alien", x, y) as Alien;
 			if (alien)
 			{
-				musicLoop.stop();
+				drumLoop.stop();
+				keysLoop.stop();
 				shipDie.play();
 				GameRoom.particleExplosion(x, y);
 				alien.destroy();

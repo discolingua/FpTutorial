@@ -31,7 +31,7 @@ package
 			
 			explode = new Emitter(spr_explosion, 2, 2);
 			explode.newType("explosion", [0]);
-			explode.setMotion("explosion", 0, 50, 0.1, 360, 50, 0.9);
+			explode.setMotion("explosion", 0, 50, 1, 360, 50, 0.9);
 			
 			// misc setup + initialization
 			
