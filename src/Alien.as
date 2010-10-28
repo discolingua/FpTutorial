@@ -6,7 +6,7 @@ package
 	public class Alien extends Entity
 	{
 		[Embed(source = "assets/ralien1.png")] private var spr_alien:Class;
-		[Embed(source = "assets/explosionalien.mp3")] private var snd_alienDie:Class;
+//		[Embed(source = "assets/explosionalien.mp3")] private var snd_alienDie:Class;
 		
 		private var speed:Number = 200;
 		private var alienDie:Sfx;
@@ -22,7 +22,7 @@ package
 			height = 32;
 			graphic = new Image(spr_alien);
 			type = "alien";
-			alienDie = new Sfx(snd_alienDie);
+//			alienDie = new Sfx(snd_alienDie);
 
 		}
 		
@@ -41,7 +41,8 @@ package
 			if (bullet)
 			{
 				bullet.destroy();
-				alienDie.play();
+//				alienDie.play();
+				Ship.padLoop.volume = 1;
 				GameRoom.particleExplosion(x, y);
 				destroy();
 				HUD.score++;

@@ -8,14 +8,16 @@ package
 	{
 		[Embed(source = "assets/rship1.png")] private var spr_ship:Class;
 		[Embed(source = "assets/explosionShip.mp3")] private var snd_shipDie:Class;
-		[Embed(source = "assets/Bullet.mp3")] private var snd_bulletShoot:Class;
-		[Embed(source = "assets/drumtest.mp3")] private var snd_drumLoop:Class;
-		[Embed(source = "assets/keystest.mp3")] private var snd_keysLoop:Class;
+//		[Embed(source = "assets/Bullet.mp3")] private var snd_bulletShoot:Class;
+		[Embed(source = "assets/ed_drm.mp3")] private var snd_drumLoop:Class;
+		[Embed(source = "assets/ed_303.mp3")] private var snd_keysLoop:Class;
+		[Embed(source = "assets/ed_pad.mp3")] private var snd_padLoop:Class;
 		
 		private var shipDie:Sfx;
-		private var bulletShoot:Sfx;
+//		private var bulletShoot:Sfx;
 		private var drumLoop:Sfx;
 		private var keysLoop:Sfx;
+		public static var padLoop:Sfx;
 		
 		private var speed:Number = 250;
 		
@@ -30,14 +32,15 @@ package
 			type = "ship";
 			
 			shipDie = new Sfx(snd_shipDie);
-			bulletShoot = new Sfx(snd_bulletShoot);
+//			bulletShoot = new Sfx(snd_bulletShoot);
 			drumLoop = new Sfx(snd_drumLoop);
 			keysLoop = new Sfx(snd_keysLoop);
+			padLoop = new Sfx(snd_padLoop);
 			
+			keysLoop.loop(1,0);
+			drumLoop.loop(0,0);
+			padLoop.loop(0,0);
 			
-			drumLoop.loop();
-			drumLoop.volume = 0;
-			keysLoop.loop();
 		}
 
 		override public function update():void 
@@ -47,7 +50,12 @@ package
 			
 			if (drumLoop.volume > 0) 
 			{
-				drumLoop.volume -= .01;
+				drumLoop.volume -= .02;
+			}
+			
+			if (padLoop.volume > 0)
+			{
+				padLoop.volume -= .01;
 			}
 			
 			// main update cycle
@@ -109,7 +117,7 @@ package
 			{
 				drumLoop.volume = .9;
 				world.add(new Bullet(x + 36, y + 12));
-				// bulletShoot.play(.6);
+//				bulletShoot.play(.6);
 			}
 		}
 		
@@ -120,6 +128,7 @@ package
 			{
 				drumLoop.stop();
 				keysLoop.stop();
+				padLoop.stop();
 				shipDie.play();
 				GameRoom.particleExplosion(x, y);
 				alien.destroy();
