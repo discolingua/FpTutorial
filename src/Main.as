@@ -1,13 +1,13 @@
 ﻿package 
 {
 	import net.flashpunk.*;
-	[SWF(width = "640", height = "480")]
+	[SWF(width = "800", height = "600")]
 	
 	public class Main extends Engine 
 	{
 			public function Main():void
 			{
-				super(640, 480, 60, false); // construct the game
+				super(800, 600, 60, false); // construct the game
 				FP.world = new GameRoom;    // load the game
 			}
 	}

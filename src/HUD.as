@@ -8,7 +8,7 @@ package
 	{
 		// reference font by fontFamily, not var name
 		
-		[Embed(source = "assets/nokiafc22.ttf", fontFamily = "nokiafc22")] private var font:Class;
+		[Embed(source = "assets/nokiafc22.ttf", embedAsCFF="false", fontFamily = "nokiafc22")] private var font:Class;
 		
 		// static vars = same variable across all instances, ergo can be accessed from another class
 		
